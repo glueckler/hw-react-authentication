@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const router = require('./router')
 
 // database setup
-mongoose.connect('mongodb://localhost:auth/auth')
+mongoose.connect('mongodb://localhost/udemy_auth')
 
 const app = express()
 
