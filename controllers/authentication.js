@@ -44,3 +44,9 @@ exports.signup = function(req, res, next) {
     })
   })
 }
+
+exports.signin = function(req, res, next) {
+  // user has already had their email and password validated (see the router for middleware)
+  // we just need to give them a token
+  res.send({ token: tokenForUser(req.user) })
+}
