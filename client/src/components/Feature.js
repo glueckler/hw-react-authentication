@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import requireAuth from './requireAuth'
 
 class Feature extends PureComponent {
   render() {
@@ -8,4 +9,4 @@ class Feature extends PureComponent {
   }
 }
 
-export default Feature
+export default requireAuth(Feature)
