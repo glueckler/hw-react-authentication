@@ -30,13 +30,20 @@ class SignUp extends PureComponent {
             autoComplete="none"
           />
         </fieldset>
+        <div>{this.props.errorMessage}</div>
         <button>Sign Up!</button>
       </form>
     );
   }
 }
 
+const mapState = state => {
+  return {
+    errorMessage: state.auth.errorMessage,
+  }
+}
+
 export default compose(
-  connect(null, actions),
+  connect(mapState, actions),
   reduxForm({ form: 'signup' })
 )(SignUp)
