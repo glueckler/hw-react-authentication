@@ -2,9 +2,13 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
 class SignUp extends PureComponent {
+  onSubmit = (formProps) => {
+
+  }
+  
   render() {
     return (
-      <form>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <fieldset>
           <label>Email</label>
           <Field 
