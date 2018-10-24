@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const router = require('./router')
+const cors = require('cors')
 
 // database setup
 mongoose.connect('mongodb://localhost/udemy_auth')
@@ -12,6 +13,7 @@ mongoose.connect('mongodb://localhost/udemy_auth')
 const app = express()
 
 app.use(morgan('combined'))
+app.use(cors())
 app.use(bodyParser.json({ type: '*/*' }))
 router(app)
 
