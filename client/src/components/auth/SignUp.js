@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions';
 
 class SignUp extends PureComponent {
   onSubmit = (formProps) => {
-
+    this.props.signup(formProps)
   }
   
   render() {
@@ -27,9 +30,13 @@ class SignUp extends PureComponent {
             autoComplete="none"
           />
         </fieldset>
+        <button>Sign Up!</button>
       </form>
     );
   }
 }
 
-export default reduxForm({ form: 'signup' })(SignUp)
+export default compose(
+  connect(null, actions),
+  reduxForm({ form: 'signup' })
+)(SignUp)
