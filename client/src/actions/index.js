@@ -12,3 +12,11 @@ export const signup = ({ email, password }, callback) => async dispatch => {
     dispatch({ type: AUTH_ERROR, payload:  'Sorry bout your err brother.. ' + err.message})
   }
 }
+
+export const signout = () => {
+  localStorage.clear('token')
+  return {
+    type: AUTH_USER,
+    payload: '',
+  }
+}
